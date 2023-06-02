@@ -1,9 +1,12 @@
 const palindromes = function (word) {
-  const originalWord = Array.from(word.toLowerCase());
+  let wordOnlyLetters = word.replace(/[^A-Z0-9]/gi, ""); // Removes alls spaces and special characters from a string
 
-  const reverseWord = Array.from(word.toLowerCase()).reverse();
+  const originalWord = Array.from(wordOnlyLetters.toLowerCase());
 
-  for (let i = 0; i < originalWord.length; i++) { // Checks if a single letter doesn't match in the array
+  const reverseWord = Array.from(wordOnlyLetters.toLowerCase()).reverse();
+
+  for (let i = 0; i < originalWord.length; i++) {
+    // Checks if a single letter doesn't match in the array
     if (originalWord[i] !== reverseWord[i]) {
       return false;
     }
@@ -11,8 +14,6 @@ const palindromes = function (word) {
 
   return true;
 };
-
-console.log(palindromes("Racecar"));
 
 // Do not edit below this line
 module.exports = palindromes;
